@@ -41,6 +41,24 @@ nav.scrolled{background:rgba(5,5,8,.97);border-bottom-color:var(--b2)}
 .nav-resume-btn:hover{transform:translateY(-1px);box-shadow:0 0 30px var(--gp)}
 .nav-resume-btn.active{background:linear-gradient(135deg,#5b21b6,var(--p))}
 
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;background:rgba(124,58,237,.1);border:1px solid var(--b2);border-radius:10px;cursor:pointer;gap:5px;padding:8px;transition:all .2s}
+.hamburger:hover{background:rgba(124,58,237,.2);border-color:var(--p)}
+.hamburger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE MENU DRAWER */
+.mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;z-index:199;background:rgba(5,5,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--b2);padding:1rem;flex-direction:column;gap:.4rem;transform:translateY(-10px);opacity:0;transition:all .3s}
+.mobile-menu.open{display:flex;transform:translateY(0);opacity:1}
+.mobile-menu .ntab{text-align:left;font-size:14px;padding:10px 16px;border-radius:10px;width:100%}
+.mobile-menu-resume{background:linear-gradient(135deg,var(--p),#5b21b6);color:#fff;font-size:13px;font-weight:700;padding:11px 16px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;text-align:left;margin-top:.25rem;box-shadow:0 0 16px var(--gp)}
+
+/* MOBILE BACK BUTTON */
+.mob-back{display:none;align-items:center;gap:8px;background:rgba(124,58,237,.08);border:1px solid var(--b2);color:var(--muted);border-radius:10px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;margin:1rem 1rem 0}
+.mob-back:hover{border-color:var(--p2);color:var(--p2)}
+
 /* PAGES */
 .page{display:none;min-height:100vh;padding-top:62px;position:relative;z-index:2}
 .page.active{display:block}
@@ -348,7 +366,8 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   .cv-page{border:none;box-shadow:none;border-radius:0;padding:20px 28px}
 }
 @media(max-width:768px){
-  nav{padding:0 1rem}.nav-tabs{display:none}
+  nav{padding:0 1rem}.nav-tabs{display:none}.nav-resume-btn{display:none}.hamburger{display:flex}
+  .mob-back{display:flex}
   .stats-inner,.stack-grid{grid-template-columns:repeat(2,1fr)}
   .ov-grid,.edu-grid{grid-template-columns:1fr}
   .ai-inner,.metrics{grid-template-columns:1fr}
@@ -377,7 +396,21 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
     <button class="ntab" onclick="showPage('contact')">Contact</button>
   </div>
   <button class="nav-resume-btn" id="resumeToggle" onclick="toggleResume()">📄 Resume</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="ntab" onclick="showPage('home');toggleMenu()">🏠 Home</button>
+  <button class="ntab" onclick="showPage('stack');toggleMenu()">⚙️ Stack</button>
+  <button class="ntab" onclick="showPage('experience');toggleMenu()">💼 Experience</button>
+  <button class="ntab" onclick="showPage('test');toggleMenu()">🚀 Projects</button>
+  <button class="ntab" onclick="showPage('education');toggleMenu()">🎓 Education</button>
+  <button class="ntab" onclick="showPage('contact');toggleMenu()">✉️ Contact</button>
+  <button class="mobile-menu-resume" onclick="toggleResume();toggleMenu()">📄 Resume</button>
+</div>
 
 <!-- HOME (merged with Who Am I photo) -->
 <div id="page-home" class="page active">
@@ -490,6 +523,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 
 <!-- STACK -->
 <div id="page-stack" class="page">
+  <button class="mob-back" onclick="showPage('home')">← Back to Home</button>
   <div class="marquee-section" style="padding:3rem 0 1rem"><div class="marquee-track" id="mt1"></div></div>
   <div class="marquee-section" style="padding:1rem 0 3rem;border-top:none"><div class="marquee-track marquee-track2" id="mt2"></div></div>
   <div class="viz-section">
@@ -531,6 +565,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 
 <!-- EXPERIENCE -->
 <div id="page-experience" class="page">
+  <button class="mob-back" onclick="showPage('home')">← Back to Home</button>
   <div class="exp-page">
     <div class="sec-ey reveal">Career</div>
     <h2 class="reveal d1">Work Experience</h2>
@@ -584,6 +619,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 
 <!-- PROJECTS -->
 <div id="page-test" class="page">
+  <button class="mob-back" onclick="showPage('home')">← Back to Home</button>
   <div style="max-width:960px;margin:0 auto;padding:4rem 2rem">
     <div class="sec-ey reveal">Personal Work</div>
     <h2 class="reveal d1">Projects</h2>
@@ -687,6 +723,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 
 <!-- EDUCATION -->
 <div id="page-education" class="page">
+  <button class="mob-back" onclick="showPage('home')">← Back to Home</button>
   <div class="edu-page">
     <div class="sec-ey reveal">Background</div>
     <h2 class="reveal d1">Education & Certifications</h2>
@@ -710,6 +747,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 
 <!-- CONTACT -->
 <div id="page-contact" class="page">
+  <button class="mob-back" onclick="showPage('home')">← Back to Home</button>
   <div class="contact-page">
     <div class="contact-box reveal">
       <div class="cb-inner">
@@ -995,6 +1033,24 @@ function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
 
 // Expose all functions globally so inline onclick attributes work
 window.showPage=showPage;
+
+// ── HAMBURGER MENU ──
+function toggleMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const burger=document.getElementById('hamburger');
+  const isOpen=menu.classList.contains('open');
+  if(isOpen){menu.classList.remove('open');burger.classList.remove('open');}
+  else{menu.classList.add('open');burger.classList.add('open');}
+}
+// Close menu when clicking outside
+document.addEventListener('click',function(e){
+  const menu=document.getElementById('mobileMenu');
+  const burger=document.getElementById('hamburger');
+  if(!menu.contains(e.target)&&!burger.contains(e.target)){
+    menu.classList.remove('open');burger.classList.remove('open');
+  }
+});
+window.toggleMenu=toggleMenu;
 window.toggleResume=toggleResume;
 window.openExp=openExp;
 window.closeExp=closeExp;
