@@ -387,6 +387,12 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   .ft-icon{width:60px!important;height:60px!important}
   .ft-icon img{width:32px!important;height:32px!important}
   .proj-pipe{grid-template-columns:repeat(2,1fr)!important}
+  /* Hero text: always bright/legible on mobile */
+  .hero-name-title{background:linear-gradient(135deg,#ffffff 30%,#c4b5fd 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+  .hero h1 .g{background:linear-gradient(135deg,#c4b5fd,#67e8f9)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+  /* Resume: hide overflow so scaled CV doesn't cause horizontal scroll */
+  #page-resume{overflow-x:hidden}
+  .cv-wrap{transform-origin:top left}
 }
 </style>
 </head>
@@ -446,7 +452,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
       <!-- text centered -->
       <div style="width:100%;max-width:760px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 0 60px;z-index:1;position:relative">
 
-      <div style="font-size:2.2rem;font-weight:900;letter-spacing:-1px;margin-bottom:1.25rem;animation:fadeUp .8s ease both;background:linear-gradient(135deg,#fff 40%,var(--p2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Hassan Ali Zahid</div>
+      <div class="hero-name-title" style="font-size:2.2rem;font-weight:900;letter-spacing:-1px;margin-bottom:1.25rem;animation:fadeUp .8s ease both;background:linear-gradient(135deg,#fff 40%,var(--p2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Hassan Ali Zahid</div>
 
       <div class="hero-pill"><span class="nav-live"></span>Senior Analytics Engineer · AI First</div>
       <h1>From Streaming<br/>to Gaming —<br/><span class="g">Data Engineered.</span></h1>
@@ -983,13 +989,27 @@ function showPage(id){
 }
 
 // ── RESUME ──
+function scaleCVForMobile(){
+  var wrap=document.querySelector('.cv-wrap');
+  if(!wrap)return;
+  var vw=window.innerWidth;
+  if(vw>=768){wrap.style.transform='';wrap.style.width='';wrap.style.maxWidth='';wrap.style.marginBottom='';return;}
+  var cw=924;// cv-wrap 860px max-width + 2×32px padding
+  var scale=vw/cw;
+  wrap.style.width=cw+'px';
+  wrap.style.maxWidth='none';
+  wrap.style.transform='scale('+scale+')';
+  var h=wrap.offsetHeight;
+  wrap.style.marginBottom=Math.round(h*scale-h)+'px';
+}
 function toggleResume(){
   const res=document.getElementById('page-resume');
   const btn=document.getElementById('resumeToggle');
   const isRes=res.style.display==='block';
   if(isRes){res.style.display='none';btn.textContent='📄 Resume';btn.classList.remove('active');showPage('home');}
-  else{document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));res.style.display='block';btn.textContent='← Back';btn.classList.add('active');window.scrollTo({top:0,behavior:'instant'});}
+  else{document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));res.style.display='block';btn.textContent='← Back';btn.classList.add('active');window.scrollTo({top:0,behavior:'instant'});setTimeout(scaleCVForMobile,0);}
 }
+window.addEventListener('resize',function(){if(document.getElementById('page-resume')&&document.getElementById('page-resume').style.display==='block')scaleCVForMobile();});
 
 // ── IMAGES ──
 const imgUrls={
@@ -1090,6 +1110,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         if(!svg)return;
         svg.setAttribute('width',size);
         svg.setAttribute('height',size);
+        svg.setAttribute('fill',color);
+        svg.querySelectorAll('[fill]').forEach(function(el){if(el.getAttribute('fill')!=='none')el.setAttribute('fill',color);});
         svg.style.cssText='display:block;flex-shrink:0';
         if(img.parentNode)img.parentNode.replaceChild(svg,img);
       })
