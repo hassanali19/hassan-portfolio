@@ -386,6 +386,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   .float-tool{position:static!important;transform:none!important;animation:none!important}
   .ft-icon{width:60px!important;height:60px!important}
   .ft-icon img{width:32px!important;height:32px!important}
+  .proj-pipe{grid-template-columns:repeat(2,1fr)!important}
 }
 </style>
 </head>
@@ -541,17 +542,17 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
       <div class="viz-glow"></div><div class="viz-glow2"></div>
       <svg class="viz-svg" id="viz-svg"></svg>
       <!-- Row 1: top -->
-      <div class="float-tool ft-powerbi"  style="top:8%;left:5%">   <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg"        alt="Power BI"        style="filter:brightness(0) invert(1)"></div><div class="ft-label">Power BI</div></div>
-      <div class="float-tool ft-ga"       style="top:8%;left:37%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg" alt="Google Analytics" style="filter:brightness(0) invert(1)"></div><div class="ft-label">Google Analytics</div></div>
-      <div class="float-tool ft-metabase" style="top:8%;right:5%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/metabase.svg"       alt="Metabase"        style="filter:brightness(0) invert(1)"></div><div class="ft-label">Metabase</div></div>
+      <div class="float-tool ft-powerbi"  style="top:8%;left:5%">   <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg"        alt="Power BI"        data-color="#F2C811"></div><div class="ft-label">Power BI</div></div>
+      <div class="float-tool ft-ga"       style="top:8%;left:37%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg" alt="Google Analytics" data-color="#E37400"></div><div class="ft-label">Google Analytics</div></div>
+      <div class="float-tool ft-metabase" style="top:8%;right:5%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/metabase.svg"       alt="Metabase"        data-color="#509EE3"></div><div class="ft-label">Metabase</div></div>
       <!-- Row 2: middle -->
-      <div class="float-tool ft-tableau"  style="top:42%;left:4%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tableau.svg"        alt="Tableau"         style="filter:brightness(0) invert(1)"></div><div class="ft-label">Tableau</div></div>
-      <div class="float-tool ft-datalens" style="top:38%;left:40%"> <div class="ft-icon" style="width:84px;height:84px;border-color:rgba(124,58,237,.5);box-shadow:0 0 28px rgba(124,58,237,.3)"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yandex.svg" alt="Yandex DataLens" style="width:44px;height:44px;filter:brightness(0) invert(1)"></div><div class="ft-label" style="color:var(--p2);font-weight:800;max-width:90px">Yandex DataLens</div></div>
-      <div class="float-tool ft-dbt"      style="top:42%;right:4%"> <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dbt.svg"            alt="dbt"             style="filter:brightness(0) invert(1)"></div><div class="ft-label">dbt</div></div>
+      <div class="float-tool ft-tableau"  style="top:42%;left:4%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tableau.svg"        alt="Tableau"         data-color="#E97627"></div><div class="ft-label">Tableau</div></div>
+      <div class="float-tool ft-datalens" style="top:38%;left:40%"> <div class="ft-icon" style="width:84px;height:84px;border-color:rgba(124,58,237,.5);box-shadow:0 0 28px rgba(124,58,237,.3)"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yandex.svg" alt="Yandex DataLens" data-color="#FF0000" data-size="44"></div><div class="ft-label" style="color:var(--p2);font-weight:800;max-width:90px">Yandex DataLens</div></div>
+      <div class="float-tool ft-dbt"      style="top:42%;right:4%"> <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dbt.svg"            alt="dbt"             data-color="#FF694B"></div><div class="ft-label">dbt</div></div>
       <!-- Row 3: bottom -->
-      <div class="float-tool ft-airflow"  style="top:72%;left:6%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apacheairflow.svg"   alt="Apache Airflow"  style="filter:brightness(0) invert(1)"></div><div class="ft-label">Apache Airflow</div></div>
-      <div class="float-tool ft-n8n"      style="top:72%;left:41%"> <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg"            alt="n8n"             style="filter:brightness(0) invert(1)"></div><div class="ft-label">n8n AI</div></div>
-      <div class="float-tool ft-aws"      style="top:72%;right:5%"> <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonaws.svg"       alt="AWS"             style="filter:brightness(0) invert(1)"></div><div class="ft-label">AWS</div></div>
+      <div class="float-tool ft-airflow"  style="top:72%;left:6%">  <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apacheairflow.svg"   alt="Apache Airflow"  data-color="#017CEE"></div><div class="ft-label">Apache Airflow</div></div>
+      <div class="float-tool ft-n8n"      style="top:72%;left:41%"> <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg"            alt="n8n"             data-color="#EA580C"></div><div class="ft-label">n8n AI</div></div>
+      <div class="float-tool ft-aws"      style="top:72%;right:5%"> <div class="ft-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonaws.svg"       alt="AWS"             data-color="#FF9900"></div><div class="ft-label">AWS</div></div>
     </div>
   </div>
   <div class="stack-sec">
@@ -658,7 +659,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
       </div>
       <div style="padding:2rem">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--hint);margin-bottom:1.5rem">Automation Pipeline</div>
-        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;margin-bottom:1.5rem">
+        <div class="proj-pipe" style="display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;margin-bottom:1.5rem">
           <div style="background:var(--s2);border:1px solid var(--b2);border-radius:12px;padding:1.1rem .75rem;text-align:center;cursor:default" onmouseover="this.style.borderColor='var(--p2)'" onmouseout="this.style.borderColor='var(--b2)'"><div style="font-size:1.6rem;margin-bottom:.5rem">💼</div><div style="font-size:.72rem;font-weight:700;color:var(--text);margin-bottom:.2rem">LinkedIn</div><div style="font-size:.62rem;color:var(--muted);line-height:1.4">Jobs scraped automatically</div></div>
           <div style="background:var(--s2);border:1px solid var(--b2);border-radius:12px;padding:1.1rem .75rem;text-align:center;cursor:default" onmouseover="this.style.borderColor='var(--p2)'" onmouseout="this.style.borderColor='var(--b2)'"><div style="font-size:1.6rem;margin-bottom:.5rem">🔍</div><div style="font-size:.72rem;font-weight:700;color:var(--text);margin-bottom:.2rem">Filter</div><div style="font-size:.62rem;color:var(--muted);line-height:1.4">Title, location & keyword rules</div></div>
           <div style="background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.08));border:1px solid rgba(124,58,237,.35);border-radius:12px;padding:1.1rem .75rem;text-align:center;cursor:default"><div style="font-size:1.6rem;margin-bottom:.5rem">✨</div><div style="font-size:.72rem;font-weight:700;color:var(--p2);margin-bottom:.2rem">Gemini AI</div><div style="font-size:.62rem;color:var(--muted);line-height:1.4">CV vs JD matching & scoring</div></div>
@@ -1073,6 +1074,28 @@ document.addEventListener('DOMContentLoaded',()=>{
     btn.addEventListener('click',()=>showPage(btn.dataset.page));
   });
 });
+
+// ── SVG ICON LOADER ──
+(function(){
+  document.querySelectorAll('.ft-icon img[data-color]').forEach(function(img){
+    var color=img.getAttribute('data-color')||'#fff';
+    var size=(img.getAttribute('data-size')||'38')+'px';
+    fetch(img.src)
+      .then(function(r){return r.ok?r.text():Promise.reject();})
+      .then(function(svgText){
+        svgText=svgText.replace(/currentColor/g,color);
+        var d=document.createElement('div');
+        d.innerHTML=svgText.trim();
+        var svg=d.querySelector('svg');
+        if(!svg)return;
+        svg.setAttribute('width',size);
+        svg.setAttribute('height',size);
+        svg.style.cssText='display:block;flex-shrink:0';
+        if(img.parentNode)img.parentNode.replaceChild(svg,img);
+      })
+      .catch(function(){});
+  });
+})();
 </script>
 </body>
 </html>
