@@ -394,6 +394,49 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   #page-resume{overflow-x:hidden}
   .cv-wrap{transform-origin:top left}
 }
+
+/* ═══ LIGHT THEME (matches OS preference) ═══ */
+@media(prefers-color-scheme:light){
+  :root{
+    --bg:#f4f4fb;--s1:#ecedf8;--s2:#e4e5f4;--s3:#dcddef;
+    --b1:#d0d2e8;--b2:#c0c2d8;--b3:#b0b2c8;
+    --text:#0a0a1a;--muted:#505075;--hint:#80809a;
+    --p:#7c3aed;--p2:#6d28d9;--p3:#5b21b6;
+    --cyan:#0891b2;--cyan2:#06b6d4;
+    --green:#059669;--green2:#10b981;
+    --amber:#d97706;--coral:#dc2626;
+    --gp:rgba(109,40,217,.18);--gc:rgba(8,145,178,.14);
+  }
+  /* Nav: replace hardcoded dark rgba */
+  nav{background:rgba(244,244,251,.92)!important;border-bottom-color:var(--b1)!important}
+  nav.scrolled{background:rgba(244,244,251,.98)!important;border-bottom-color:var(--b2)!important}
+  /* Mobile menu + drawer */
+  .mobile-menu{background:rgba(244,244,251,.98)!important;border-bottom-color:var(--b2)!important}
+  /* Hero gradient: #fff endpoint is invisible on light bg — switch to near-black */
+  .hero-name-title{background:linear-gradient(135deg,#0a0a2a 30%,var(--p2) 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+  /* "Data Engineered." — use darker gradient so it reads on light bg */
+  .hero h1 .g{background:linear-gradient(135deg,var(--p2),var(--cyan))!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+  /* Stat numbers gradient uses --p2/--cyan2 → already updated via variables, but ensure clip */
+  .sn{background:linear-gradient(135deg,var(--p2),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  /* AI stat number */
+  .ai-n{background:linear-gradient(135deg,var(--p2),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  /* Particles: subtle on light bg */
+  #particles{opacity:.35}
+  /* Hero glow: soften */
+  .hero-glow{background:radial-gradient(ellipse,rgba(109,40,217,.1),transparent 65%)}
+  /* Contact link pills: rgba(255,255,255,.04) is invisible on light — bump opacity */
+  .cl{background:rgba(0,0,0,.04)!important;border-color:var(--b2)!important}
+  .cl:hover{background:rgba(109,40,217,.08)!important}
+  .cl-wp{background:rgba(37,211,102,.08)!important}
+  .cl-li{background:rgba(10,102,194,.08)!important}
+  /* Scrollbar */
+  ::-webkit-scrollbar-thumb{background:var(--p2)}
+}
+/* Light + mobile: hero text must be dark-gradient (overrides the mobile bright-white override) */
+@media(prefers-color-scheme:light) and (max-width:768px){
+  .hero-name-title{background:linear-gradient(135deg,#0a0a2a 30%,var(--p2) 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+  .hero h1 .g{background:linear-gradient(135deg,var(--p2),var(--cyan))!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+}
 </style>
 </head>
 <body>
