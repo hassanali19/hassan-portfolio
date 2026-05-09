@@ -439,10 +439,14 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   .hero h1 .g{background:none!important;-webkit-background-clip:initial!important;background-clip:initial!important;-webkit-text-fill-color:#67e8f9!important;color:#67e8f9!important;text-shadow:0 1px 22px rgba(103,232,249,.35)}
   .sn{background:none!important;-webkit-background-clip:initial!important;background-clip:initial!important;-webkit-text-fill-color:#a78bfa!important;color:#a78bfa!important}
   .ai-n{background:none!important;-webkit-background-clip:initial!important;background-clip:initial!important;-webkit-text-fill-color:#a78bfa!important;color:#a78bfa!important}
-  #page-resume{overflow-x:hidden;padding-top:64px}
+  #page-resume{padding-top:64px}
   .resume-toolbar{padding:1rem 1.25rem .5rem;flex-direction:column;align-items:stretch}
   .rt-actions{justify-content:flex-end}
-  .cv-wrap{transform-origin:top left;padding:0 1rem 2rem}
+  .proj-container{padding:2rem 1rem!important}
+  .workflow-scroll{overflow-x:visible!important;padding-bottom:0!important}
+  .workflow-steps{display:grid!important;grid-template-columns:repeat(2,1fr)!important;min-width:0!important;gap:.6rem!important}
+  .workflow-arrow{display:none!important}
+  .workflow-step{min-width:0!important}
   footer{padding:1.5rem 1.25rem 2rem;flex-direction:column;align-items:flex-start;gap:.6rem;text-align:left}
   .back-top{bottom:1.25rem;right:1.25rem;width:40px;height:40px}
 }
@@ -801,7 +805,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 <!-- PROJECTS -->
 <div id="page-test" class="page">
   <button class="mob-back" onclick="showPage('home')">← Back to Home</button>
-  <div style="max-width:960px;margin:0 auto;padding:4rem 2rem">
+  <div class="proj-container" style="max-width:960px;margin:0 auto;padding:4rem 2rem">
     <div class="sec-ey reveal">Personal Work</div>
     <h2 class="reveal d1">Projects</h2>
     <p class="sec-desc reveal d2">AI-powered automations and tools built independently — outside of any company mandate.</p>
@@ -867,21 +871,21 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
       </div>
       <div style="padding:2rem">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--hint);margin-bottom:1.5rem">n8n Workflow Pipeline</div>
-        <div style="overflow-x:auto;padding-bottom:.5rem">
-          <div style="display:flex;align-items:center;gap:6px;min-width:700px;margin-bottom:1.25rem">
-            <div style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">⚡</div><div style="font-size:.68rem;font-weight:700;color:var(--text)">Webhook</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">POST trigger</div></div>
-            <div style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
-            <div style="background:var(--s2);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">{ }</div><div style="font-size:.68rem;font-weight:700;color:#fbbf24">Transform</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Webhook data</div></div>
-            <div style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
-            <div style="background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">🌐</div><div style="font-size:.68rem;font-weight:700;color:var(--cyan2)">Upload File</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">→ Gemini API</div></div>
-            <div style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
-            <div style="background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:80px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">⏸</div><div style="font-size:.68rem;font-weight:700;color:var(--p3)">Wait 2s</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Processing</div></div>
-            <div style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
-            <div style="background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.08));border:1px solid rgba(124,58,237,.4);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">✨</div><div style="font-size:.68rem;font-weight:700;color:var(--p2)">Get Analysis</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Gemini 2.5 Flash</div></div>
-            <div style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
-            <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">📊</div><div style="font-size:.68rem;font-weight:700;color:var(--green2)">Google Sheets</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Store schema</div></div>
-            <div style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
-            <div style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">↩</div><div style="font-size:.68rem;font-weight:700;color:var(--text)">Respond</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">JSON output</div></div>
+        <div class="workflow-scroll" style="overflow-x:auto;padding-bottom:.5rem">
+          <div class="workflow-steps" style="display:flex;align-items:center;gap:6px;min-width:700px;margin-bottom:1.25rem">
+            <div class="workflow-step" style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">⚡</div><div style="font-size:.68rem;font-weight:700;color:var(--text)">Webhook</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">POST trigger</div></div>
+            <div class="workflow-arrow" style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
+            <div class="workflow-step" style="background:var(--s2);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">{ }</div><div style="font-size:.68rem;font-weight:700;color:#fbbf24">Transform</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Webhook data</div></div>
+            <div class="workflow-arrow" style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
+            <div class="workflow-step" style="background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">🌐</div><div style="font-size:.68rem;font-weight:700;color:var(--cyan2)">Upload File</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">→ Gemini API</div></div>
+            <div class="workflow-arrow" style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
+            <div class="workflow-step" style="background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:80px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">⏸</div><div style="font-size:.68rem;font-weight:700;color:var(--p3)">Wait 2s</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Processing</div></div>
+            <div class="workflow-arrow" style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
+            <div class="workflow-step" style="background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.08));border:1px solid rgba(124,58,237,.4);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">✨</div><div style="font-size:.68rem;font-weight:700;color:var(--p2)">Get Analysis</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Gemini 2.5 Flash</div></div>
+            <div class="workflow-arrow" style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
+            <div class="workflow-step" style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">📊</div><div style="font-size:.68rem;font-weight:700;color:var(--green2)">Google Sheets</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">Store schema</div></div>
+            <div class="workflow-arrow" style="color:var(--hint);font-size:13px;font-weight:700;flex-shrink:0">→</div>
+            <div class="workflow-step" style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:.85rem .9rem;text-align:center;min-width:90px;flex-shrink:0"><div style="font-size:1.4rem;margin-bottom:.3rem">↩</div><div style="font-size:.68rem;font-weight:700;color:var(--text)">Respond</div><div style="font-size:.58rem;color:var(--muted);margin-top:.15rem">JSON output</div></div>
           </div>
         </div>
         <div style="background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.15);border-radius:10px;padding:.9rem 1.2rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:10px">
@@ -1157,13 +1161,19 @@ function scaleCVForMobile(){
   var wrap=document.querySelector('.cv-wrap');
   if(!wrap)return;
   var vw=window.innerWidth;
-  if(vw>=768){wrap.style.transform='';wrap.style.width='';wrap.style.maxWidth='';wrap.style.marginBottom='';return;}
-  var cw=924;// cv-wrap 860px max-width + 2×32px padding
+  if(vw>=768){
+    wrap.style.cssText='';
+    return;
+  }
+  var cw=924;// 860px max-width + 2×32px padding (desktop)
   var scale=vw/cw;
+  wrap.style.transformOrigin='top left';
   wrap.style.width=cw+'px';
   wrap.style.maxWidth='none';
   wrap.style.transform='scale('+scale+')';
+  // offsetHeight is unaffected by transform, so we get the true layout height
   var h=wrap.offsetHeight;
+  // Pull subsequent content up so no gap is left by the shrunken element
   wrap.style.marginBottom=Math.round(h*scale-h)+'px';
 }
 function toggleResume(){
