@@ -1230,9 +1230,13 @@ function closeExp(){
 
 function downloadCV(){
   const el=document.querySelector('.cv-page');
+  const wrap=document.querySelector('.cv-wrap');
   const btn=document.querySelector('.rt-btn-dl');
   btn.textContent='⏳ Generating…';
   btn.disabled=true;
+  // Save and clear any mobile scale transform so PDF captures full desktop layout
+  const savedCss=wrap.style.cssText;
+  wrap.style.cssText='';
   const opt={
     margin:[8,8,8,8],
     filename:'Hassan-Ali-Zahid-Resume.pdf',
@@ -1241,6 +1245,7 @@ function downloadCV(){
     jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
   };
   html2pdf().set(opt).from(el).save().then(()=>{
+    wrap.style.cssText=savedCss;
     btn.textContent='⬇ Download PDF';
     btn.disabled=false;
   });
