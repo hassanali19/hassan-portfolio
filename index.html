@@ -8,16 +8,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#050508;--s1:#0d0d14;--s2:#12121c;--s3:#1a1a2e;
-  --b1:#1e1e30;--b2:#2a2a40;--b3:#3a3a55;
-  --text:#f0f0ff;--muted:#8888aa;--hint:#555570;
+  --bg:#050508;--s1:#0d0d14;--s2:#13131e;--s3:#1a1a2e;
+  --b1:#1f1f33;--b2:#2c2c44;--b3:#3a3a55;
+  --text:#f4f4ff;--muted:#9a9ac0;--hint:#6c6c88;
   --p:#7c3aed;--p2:#a78bfa;--p3:#c4b5fd;
   --cyan:#06b6d4;--cyan2:#67e8f9;
   --green:#10b981;--green2:#6ee7b7;
   --amber:#f59e0b;--coral:#ef4444;
   --gp:rgba(124,58,237,.3);--gc:rgba(6,182,212,.2);
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;color-scheme:dark}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--p);border-radius:3px}
 
@@ -370,46 +370,112 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   .cv-wrap{padding:0;max-width:100%}
   .cv-page{border:none;box-shadow:none;border-radius:0;padding:20px 28px}
 }
+/* ── TABLET (≤ 1100px) ── */
+@media(max-width:1100px){
+  nav{padding:0 1.5rem}
+  .stats-inner{grid-template-columns:repeat(3,1fr);gap:1.5rem 1rem}
+  .pipeline{grid-template-columns:repeat(3,1fr)}
+  .pn{border-bottom:1px solid var(--b1)}
+  .pn:nth-child(3n){border-right:none}
+  .pn:nth-last-child(-n+3){border-bottom:none}
+  .stack-grid{grid-template-columns:repeat(3,1fr)}
+  .ov-grid{grid-template-columns:repeat(2,1fr)}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .ai-inner{gap:1.5rem}
+  .hero > div:last-child{gap:3rem!important;padding:40px 1.75rem 50px!important;max-width:100%!important}
+  .contact-box{padding:3.5rem 2.5rem}
+  .proj-pipe{grid-template-columns:repeat(3,1fr)!important}
+  .viz-canvas{height:460px}
+}
+
+/* ── MOBILE (≤ 768px) ── */
 @media(max-width:768px){
-  nav{padding:0 1rem}.nav-tabs{display:none}.nav-resume-btn{display:none}.hamburger{display:flex}
-  .mob-back{display:flex}
-  .stats-inner,.stack-grid{grid-template-columns:repeat(2,1fr)}
+  nav{padding:0 1rem;height:58px}
+  .nav-tabs{display:none}.nav-resume-btn{display:none}.hamburger{display:flex}
+  .nav-logo{font-size:13.5px}
+  .mobile-menu{top:58px}
+  .page{padding-top:58px}
+  .mob-back{display:inline-flex;margin:1rem 1.25rem 0}
+  .stats-inner,.stack-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem .75rem}
   .ov-grid,.edu-grid{grid-template-columns:1fr}
   .ai-inner,.metrics{grid-template-columns:1fr}
+  .ai-block{padding:1.75rem}
+  .ai-stat{margin:0 auto;min-width:0;width:100%}
   .skills-grid{grid-template-columns:repeat(2,1fr)}
-  h2{letter-spacing:-.8px}
+  h2{letter-spacing:-.8px;font-size:1.85rem}
   .pipeline{grid-template-columns:repeat(2,1fr)}
-  .hero > div:last-child{flex-direction:column !important;align-items:center !important;gap:2rem !important;padding:40px 1.5rem 50px !important}
-  .hero h1{text-align:center}
+  .pn{border-right:1px solid var(--b1)!important;border-bottom:1px solid var(--b1)!important}
+  .pn:nth-child(2n){border-right:none!important}
+  .pn:nth-last-child(-n+2){border-bottom:none!important}
+  .hero{padding:0 1rem}
+  .hero > div:last-child{flex-direction:column !important;align-items:center !important;gap:2rem !important;padding:32px 1rem 48px !important}
+  .hero h1{text-align:center;font-size:clamp(2rem,8vw,2.8rem)}
   .hero-btns{justify-content:center}
   .hero-tags{justify-content:center}
-  .hero-sub{margin:0 auto 2.5rem}
+  .hero-sub{margin:0 auto 2.5rem;font-size:.92rem}
+  .hero-name-title{font-size:1.7rem!important}
+  .stats-band{padding:2.5rem 1rem}
+  .sn{font-size:1.65rem}
+  .overview{padding:3.5rem 1.25rem}
+  .stack-sec,.exp-page,.edu-page,.contact-page,.viz-section{padding-left:1.25rem;padding-right:1.25rem}
+  .contact-box{padding:2.75rem 1.5rem;border-radius:18px}
+  .contact-box h2{font-size:1.9rem}
+  .clinks{flex-direction:column;align-items:stretch;gap:.55rem}
+  .cl{justify-content:center}
   /* Viz canvas → static grid on mobile so nothing overlaps */
-  .viz-canvas{height:auto!important;display:grid!important;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:2rem 1rem;overflow:visible!important}
+  .viz-canvas{height:auto!important;display:grid!important;grid-template-columns:repeat(3,1fr);gap:1.25rem;padding:2rem 1rem;overflow:visible!important}
   .viz-glow,.viz-glow2,.viz-svg{display:none}
   .float-tool{position:static!important;transform:none!important;animation:none!important}
-  .ft-icon{width:60px!important;height:60px!important}
-  .ft-icon img{width:32px!important;height:32px!important}
+  .ft-icon{width:58px!important;height:58px!important}
+  .ft-icon img{width:30px!important;height:30px!important}
+  .ft-label{font-size:10px}
   .proj-pipe{grid-template-columns:repeat(2,1fr)!important}
-  /* Hero text: always bright/legible on mobile */
+  .exp-active-card .xcard{height:160px!important}
+  .exp-detail-panel{padding:1.4rem}
+  .dp-metrics{grid-template-columns:repeat(2,1fr)}
   .hero-name-title{background:linear-gradient(135deg,#ffffff 0%,#ffffff 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
   .hero h1 .g{background:linear-gradient(135deg,#ffffff,#67e8f9)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
-  /* Resume: hide overflow so scaled CV doesn't cause horizontal scroll */
-  #page-resume{overflow-x:hidden}
-  .cv-wrap{transform-origin:top left}
+  #page-resume{overflow-x:hidden;padding-top:64px}
+  .resume-toolbar{padding:1rem 1.25rem .5rem;flex-direction:column;align-items:stretch}
+  .rt-actions{justify-content:flex-end}
+  .cv-wrap{transform-origin:top left;padding:0 1rem 2rem}
+  footer{padding:1.5rem 1.25rem 2rem;flex-direction:column;align-items:flex-start;gap:.6rem;text-align:left}
+  .back-top{bottom:1.25rem;right:1.25rem;width:40px;height:40px}
+}
+
+/* ── SMALL MOBILE (≤ 480px) ── */
+@media(max-width:480px){
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .stack-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .pipeline{grid-template-columns:1fr}
+  .pn{border-right:none!important;border-bottom:1px solid var(--b1)!important}
+  .pn:last-child{border-bottom:none!important}
+  .viz-canvas{grid-template-columns:repeat(2,1fr)!important}
+  .proj-pipe{grid-template-columns:1fr!important}
+  .hero h1{font-size:1.85rem;letter-spacing:-1px}
+  .hero-name-title{font-size:1.45rem!important}
+  .hero-pill{font-size:10.5px;padding:6px 14px}
+  .hero-btns{flex-direction:column;width:100%}
+  .btn-p,.btn-o{width:100%;justify-content:center}
+  .htag{font-size:11px;padding:6px 12px}
+  .ai-block h3{font-size:1.2rem}
+  .ai-n{font-size:1.85rem}
+  .contact-box h2{font-size:1.55rem;letter-spacing:-.6px}
+  .ov-card,.edu-c{padding:1.4rem}
 }
 
 /* ═══ LIGHT THEME (matches OS preference) ═══ */
-@media(prefers-color-scheme:light){
+@media (prefers-color-scheme:light) and (max-width:0){
   :root{
-    --bg:#f4f4fb;--s1:#ecedf8;--s2:#e4e5f4;--s3:#dcddef;
-    --b1:#d0d2e8;--b2:#c0c2d8;--b3:#b0b2c8;
-    --text:#0a0a1a;--muted:#505075;--hint:#80809a;
-    --p:#7c3aed;--p2:#6d28d9;--p3:#5b21b6;
-    --cyan:#0891b2;--cyan2:#06b6d4;
-    --green:#059669;--green2:#10b981;
-    --amber:#d97706;--coral:#dc2626;
-    --gp:rgba(109,40,217,.18);--gc:rgba(8,145,178,.14);
+    --bg:#f7f7fc;--s1:#ffffff;--s2:#f0f0f8;--s3:#e6e6f0;
+    --b1:#dcdde8;--b2:#c4c5d6;--b3:#a0a2b8;
+    --text:#0a0a1c;--muted:#3f3f5e;--hint:#6a6a85;
+    --p:#6d28d9;--p2:#5b21b6;--p3:#6d28d9;
+    --cyan:#0e7490;--cyan2:#0891b2;
+    --green:#047857;--green2:#059669;
+    --amber:#b45309;--coral:#b91c1c;
+    --gp:rgba(91,33,182,.16);--gc:rgba(8,145,178,.12);
   }
   /* Nav: replace hardcoded dark rgba */
   nav{background:rgba(244,244,251,.92)!important;border-bottom-color:var(--b1)!important}
@@ -435,9 +501,56 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
   .cl-li{background:rgba(10,102,194,.08)!important}
   /* Scrollbar */
   ::-webkit-scrollbar-thumb{background:var(--p2)}
+
+  /* Pills / tags / chips that used rgba(255,255,255,.0X) on dark — give them light-mode equivalents */
+  .htag{background:rgba(10,10,30,.04)!important}
+  .htag:hover{background:rgba(109,40,217,.08)!important}
+  .sp-gr,.otag,.tool-chip{background:rgba(10,10,30,.04)!important;border-color:var(--b1)!important;color:var(--muted)!important}
+  .tool-chip:hover{background:rgba(109,40,217,.08)!important;color:var(--p)!important;border-color:var(--p)!important}
+  /* Accent pill text — bump to darker shade so they read on tinted backgrounds */
+  .sp-p,.fn-p,.pt-d{color:#5b21b6!important}
+  .sp-g,.fn-g,.pt-das{color:#047857!important}
+  .sp-a,.pt-a,.pt-g,.pt-b{color:#92400e!important}
+  .sp-b,.pt-s{color:#0e7490!important}
+  /* Marquee gradient mask — match light s1 */
+  .marquee-section{background:var(--s1)!important}
+  .marquee-section::before{background:linear-gradient(90deg,var(--s1),transparent)!important}
+  .marquee-section::after{background:linear-gradient(-90deg,var(--s1),transparent)!important}
+  /* Buttons — outline btn should darken text on hover */
+  .btn-o:hover{color:var(--p)!important;background:rgba(109,40,217,.06)!important}
+  .ntab:hover{color:var(--text)!important;background:rgba(109,40,217,.08)!important}
+  .ntab.active{color:var(--p)!important;background:rgba(109,40,217,.12)!important}
+  /* Card surfaces — pure white pops, light s2 borders read */
+  .ov-card,.sc,.edu-c,.flow-box,.fn,.pn,.exp-detail-panel,.dp-mc,.contact-box,.pipeline,.li-row{background:var(--s1)!important}
+  .pipeline{border-color:var(--b1)!important}
+  .pn{background:transparent!important}
+  /* Stats numbers + ai num — keep gradient legible */
+  .sn,.ai-n{background:linear-gradient(135deg,var(--p),var(--cyan))!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+  /* Section eyebrow + active nav — darker accent */
+  .sec-ey{color:var(--p)!important}
+  .nav-logo span{color:var(--p)!important}
+  /* Footer link hover */
+  .ft-links button:hover{color:var(--p)!important}
+  .ft-name span{color:var(--p)!important}
+  /* Resume CV is hard-coded white bg — already legible. Just dim toolbar surface */
+  #page-resume{background:var(--bg)!important}
+  /* Back-to-top: keep purple chip but with stronger shade */
+  .back-top{background:var(--p)!important}
+  .back-top:hover{background:var(--p2)!important}
+  /* AI block surface — softer tint that matches light theme */
+  .ai-block{background:linear-gradient(135deg,rgba(109,40,217,.06),rgba(8,145,178,.04))!important;border-color:rgba(109,40,217,.18)!important}
+  .ai-badge{background:rgba(109,40,217,.1)!important;color:var(--p)!important;border-color:rgba(109,40,217,.2)!important}
+  /* Dp-ai chip */
+  .dp-ai{background:rgba(109,40,217,.08)!important;color:var(--p)!important;border-color:rgba(109,40,217,.2)!important}
+  /* Status pills */
+  .nav-live{background:var(--green2)!important;box-shadow:0 0 8px var(--green2)!important}
+  /* Hero pill */
+  .hero-pill{background:rgba(109,40,217,.08)!important;border-color:rgba(109,40,217,.2)!important;color:var(--p)!important}
+  .hero-sub strong{color:var(--text)!important}
+  /* Project cards (Personal Project tag etc.) inherit accent text — already ok via vars */
 }
 /* Light + mobile: hero text must be dark-gradient (overrides the mobile bright-white override) */
-@media(prefers-color-scheme:light) and (max-width:768px){
+@media (prefers-color-scheme:light) and (max-width:0) and (max-width:768px){
   .hero-name-title{background:linear-gradient(135deg,#0a0a2a 30%,var(--p2) 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
   .hero h1 .g{background:linear-gradient(135deg,var(--p2),var(--cyan))!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
 }
@@ -983,7 +1096,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
 
 <button class="back-top" onclick="scrollToTop()">↑</button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── PARTICLES ──
 (()=>{
   const c=document.getElementById('particles');
@@ -1100,11 +1213,21 @@ function closeExp(){
 }
 
 function downloadCV(){
-  const pages=document.querySelectorAll('.page');const states=[];
-  pages.forEach(p=>{states.push(p.style.display);p.style.display='none'});
-  document.getElementById('page-resume').style.display='block';
-  window.print();
-  setTimeout(()=>{document.getElementById('page-resume').style.display='none';pages.forEach((p,i)=>p.style.display=states[i]);},1000);
+  const el=document.querySelector('.cv-page');
+  const btn=document.querySelector('.rt-btn-dl');
+  btn.textContent='⏳ Generating…';
+  btn.disabled=true;
+  const opt={
+    margin:[8,8,8,8],
+    filename:'Hassan-Ali-Zahid-Resume.pdf',
+    image:{type:'jpeg',quality:0.98},
+    html2canvas:{scale:3,useCORS:true,logging:false,letterRendering:true},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+  };
+  html2pdf().set(opt).from(el).save().then(()=>{
+    btn.textContent='⬇ Download PDF';
+    btn.disabled=false;
+  });
 }
 
 function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
@@ -1166,5 +1289,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 })();
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 </html>
