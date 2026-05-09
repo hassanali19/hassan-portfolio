@@ -1234,17 +1234,27 @@ function downloadCV(){
   const btn=document.querySelector('.rt-btn-dl');
   btn.textContent='⏳ Generating…';
   btn.disabled=true;
-  // Save and clear any mobile scale transform so PDF captures full desktop layout
+  // Remove mobile scale transform
   const savedCss=wrap.style.cssText;
   wrap.style.cssText='';
+  // Force desktop layout for all grid elements during capture
+  const forceStyle=document.createElement('style');
+  forceStyle.id='__pdf-override__';
+  forceStyle.textContent=[
+    '#page-resume .skills-grid{grid-template-columns:repeat(3,1fr)!important}',
+    '.cv-wrap{transform:none!important;width:auto!important;max-width:860px!important;margin:0 auto!important}'
+  ].join('');
+  document.head.appendChild(forceStyle);
   const opt={
     margin:[8,8,8,8],
     filename:'Hassan-Ali-Zahid-Resume.pdf',
-    image:{type:'jpeg',quality:0.98},
-    html2canvas:{scale:3,useCORS:true,logging:false,letterRendering:true},
+    image:{type:'png'},
+    html2canvas:{scale:3,useCORS:true,logging:false,letterRendering:true,windowWidth:1200},
     jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
   };
   html2pdf().set(opt).from(el).save().then(()=>{
+    const s=document.getElementById('__pdf-override__');
+    if(s)s.remove();
     wrap.style.cssText=savedCss;
     btn.textContent='⬇ Download PDF';
     btn.disabled=false;
