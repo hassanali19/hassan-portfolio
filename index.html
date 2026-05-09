@@ -939,7 +939,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
         <h2>Let's Connect</h2>
         <p>Open to Senior Analytics Engineer and Data Engineer roles across gaming, OTT and tech.</p>
         <div class="clinks">
-          <a class="cl" href="/cdn-cgi/l/email-protection#dcb4bdafafbdb2bdb0b5e8efedef9cbbb1bdb5b0f2bfb3b1">✉ <span class="__cf_email__" data-cfemail="e880899b9b8986898481dcdbd9dba88f85898184c68b8785">[email&#160;protected]</span></a>
+          <a class="cl" href="mailto:hassanali4313@gmail.com">✉ hassanali4313@gmail.com</a>
           <a class="cl cl-wp" href="https://wa.me/923204851565" target="_blank">📱 WhatsApp +92 320 485 1565</a>
           <a class="cl cl-li" href="https://www.linkedin.com/in/hassan-ali-zahid-8b61a878/" target="_blank">in LinkedIn</a>
           <span class="cl">📍 Lahore, Pakistan</span>
@@ -969,7 +969,7 @@ h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:900;letter-spacing:-1.2px;ma
         </div>
         <div class="cv-contacts">
           <span>+92 320 485 1565</span>
-          <a href="/cdn-cgi/l/email-protection#ef878e9c9c8e818e8386dbdcdedcaf88828e8683c18c8082"><span class="__cf_email__" data-cfemail="f890998b8b9996999491cccbc9cbb89f95999194d69b9795">[email&#160;protected]</span></a>
+          <a href="mailto:hassanali4313@gmail.com">hassanali4313@gmail.com</a>
           <span>Lahore, Pakistan</span>
           <a href="https://www.linkedin.com/in/hassan-ali-zahid-8b61a878/">linkedin.com/in/hassan-ali-zahid</a>
         </div>
@@ -1227,11 +1227,21 @@ function closeExp(){
 }
 
 function downloadCV(){
-  const pages=document.querySelectorAll('.page');const states=[];
-  pages.forEach(p=>{states.push(p.style.display);p.style.display='none'});
-  document.getElementById('page-resume').style.display='block';
-  window.print();
-  setTimeout(()=>{document.getElementById('page-resume').style.display='none';pages.forEach((p,i)=>p.style.display=states[i]);},1000);
+  const el=document.querySelector('.cv-page');
+  const btn=document.querySelector('.rt-btn-dl');
+  btn.textContent='⏳ Generating…';
+  btn.disabled=true;
+  const opt={
+    margin:[8,8,8,8],
+    filename:'Hassan-Ali-Zahid-Resume.pdf',
+    image:{type:'jpeg',quality:0.98},
+    html2canvas:{scale:3,useCORS:true,logging:false,letterRendering:true},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+  };
+  html2pdf().set(opt).from(el).save().then(()=>{
+    btn.textContent='⬇ Download PDF';
+    btn.disabled=false;
+  });
 }
 
 function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
@@ -1293,5 +1303,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 })();
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 </html>
