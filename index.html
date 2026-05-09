@@ -1234,22 +1234,19 @@ function downloadCV(){
   const btn=document.querySelector('.rt-btn-dl');
   btn.textContent='⏳ Generating…';
   btn.disabled=true;
-  // Remove mobile scale transform
+  // Save state, then force element to desktop width so html2canvas captures full layout
   const savedCss=wrap.style.cssText;
-  wrap.style.cssText='';
-  // Force desktop layout for all grid elements during capture
+  wrap.style.cssText='width:860px;max-width:none;transform:none;margin:0 auto;';
+  // Override any mobile media-query grid collapse inside the resume
   const forceStyle=document.createElement('style');
   forceStyle.id='__pdf-override__';
-  forceStyle.textContent=[
-    '#page-resume .skills-grid{grid-template-columns:repeat(3,1fr)!important}',
-    '.cv-wrap{transform:none!important;width:auto!important;max-width:860px!important;margin:0 auto!important}'
-  ].join('');
+  forceStyle.textContent='#page-resume .skills-grid{grid-template-columns:repeat(3,1fr)!important}';
   document.head.appendChild(forceStyle);
   const opt={
     margin:[8,8,8,8],
     filename:'Hassan-Ali-Zahid-Resume.pdf',
-    image:{type:'png'},
-    html2canvas:{scale:3,useCORS:true,logging:false,letterRendering:true,windowWidth:1200},
+    image:{type:'jpeg',quality:0.95},
+    html2canvas:{scale:2,useCORS:true,logging:false,letterRendering:true},
     jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
   };
   html2pdf().set(opt).from(el).save().then(()=>{
